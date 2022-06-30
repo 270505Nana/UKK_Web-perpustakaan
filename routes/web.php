@@ -21,3 +21,10 @@ Route::get('/', function () {
 
 Route::get('/pegawai', [EmployeeController::class, 'index'])->name('pegawai');
 
+// Route ke Form tambah pegawai
+Route::get('/tambahpegawai', [EmployeeController::class, 'tambahpegawai'])->name('tambahpegawai');
+
+// Route untuk mengirim datanya ke database, setelah user insert data
+Route::post('/insertdata', [EmployeeController::class, 'insertdata'])->name('insertdata');
+// insert data -> post
+
