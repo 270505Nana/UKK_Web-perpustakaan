@@ -50,7 +50,7 @@
                             <td>{{$row->created_at->format('D M Y') }}</td>
                             <td>
                                 <a href="/tampilkandata/{{$row->id}}" class="btn btn-info">Edit</a>
-                                <a href="/delete/{{$row->id}}" class="btn btn-danger">Hapus</a>
+                                <a class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama}}" >Hapus</a>
                             </td>
                         </tr>
                     @endforeach
@@ -66,10 +66,52 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.js"
+    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+    crossorigin="anonymous">
+    </script>
+
+
+    <!-- SWEETALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
   </body>
+  <!-- PEMANGGILAN SWEET ALERT -->
+  <script>
+    // swal("Good job!", "You clicked the button!", "success");
+
+    $('.delete').click( function(){
+
+        var pegawaiid = $(this).attr('data-id');
+        var nama = $(this).attr('data-nama');
+
+        swal({
+            title: "Hapus Data?",
+            text: "Kamu akan menghapus data pegawai dengan nama "+nama+" ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/delete/"+pegawaiid+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Data tidak jadi dihapus");
+            }
+        });
+    });
+    // delete : diambil dari class button 'hapus'
+    
+  </script>
 </html>
