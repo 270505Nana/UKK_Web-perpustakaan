@@ -28,3 +28,9 @@ Route::get('/tambahpegawai', [EmployeeController::class, 'tambahpegawai'])->name
 Route::post('/insertdata', [EmployeeController::class, 'insertdata'])->name('insertdata');
 // insert data -> post
 
+// Route menampilkan data, ketika klik edit
+Route::get('/tampilkandata/{id}', [EmployeeController::class, 'tampilkandata'])->name('tampilkandata');
+
+// Untuk mengirim data yang diedit
+Route::post('/updatedata/{id}', [EmployeeController::class, 'updatedata'])->name('updatedata');
+// update data -> post
