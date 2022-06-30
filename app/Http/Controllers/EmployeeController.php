@@ -9,7 +9,7 @@ class EmployeeController extends Controller
 {
     public function index(){
 
-       $data_nana = Employee::all();
+       $data_nana = Employee::paginate(5);
        return view('datapegawai',compact('data_nana'));
     }
 

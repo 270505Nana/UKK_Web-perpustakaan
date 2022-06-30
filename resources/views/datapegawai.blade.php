@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
+
 
     <title>CRUD LARAVEL | 8</title>
   </head>
@@ -41,9 +43,9 @@
                     @php
                         $no = 1;
                     @endphp
-                    @foreach($data_nana as $row)
+                    @foreach($data_nana as $index =>  $row)
                         <tr>
-                            <th scope="row">{{$no++}}</th>
+                            <th scope="row">{{$index + $data_nana->firstItem() }}</th>
                             <td>{{$row->nama}}</td>
                             <td>{{$row->jeniskelamin}}</td>
                             <td>{{$row->notelpon}}</td>
@@ -56,6 +58,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $data_nana->links() }}
         </div>
     </div>
 
@@ -76,6 +79,8 @@
 
     <!-- SWEETALERT -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     
     
     <!-- Option 2: Separate Popper and Bootstrap JS -->
