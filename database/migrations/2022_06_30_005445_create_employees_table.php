@@ -18,7 +18,7 @@ return new class extends Migration
             // AI (auto increment)
             $table->string('nama');
             $table->enum('jeniskelamin',['cowo','cewe']);
-            $table->integer('notelpon');
+            $table->bigInteger('notelpon');
             $table->timestamps();
         });
     }
