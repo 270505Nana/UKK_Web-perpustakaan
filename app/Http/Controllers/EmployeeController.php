@@ -35,4 +35,11 @@ class EmployeeController extends Controller
 
         return redirect()->route('pegawai')->with('success','Data Berhasil di Ubah');
     }
+
+    public function delete($id){
+        $data_nana = Employee :: find($id);
+        $data_nana->delete();
+
+        return redirect()->route('pegawai')->with('success','Data Berhasil di Hapus');
+    }
 }

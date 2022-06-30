@@ -34,3 +34,6 @@ Route::get('/tampilkandata/{id}', [EmployeeController::class, 'tampilkandata'])-
 // Untuk mengirim data yang diedit
 Route::post('/updatedata/{id}', [EmployeeController::class, 'updatedata'])->name('updatedata');
 // update data -> post
+
+// Delete data
+Route::get('/delete/{id}', [EmployeeController::class, 'delete'])->name('delete');
