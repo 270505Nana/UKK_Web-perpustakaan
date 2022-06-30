@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-       $data_nana = Employee::paginate(5);
+        if ($request->has('search')) {
+            $data_nana = Employee::where('nama','LIKE','%'.$request->search.'%')->paginate(5);
+        }else {
+            $data_nana = Employee::paginate(5);
+        }
+
        return view('datapegawai',compact('data_nana'));
     }
 

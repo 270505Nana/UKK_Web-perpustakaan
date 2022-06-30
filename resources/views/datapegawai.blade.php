@@ -19,6 +19,14 @@
 
     <a href="/tambahpegawai" class="btn btn-success"> + Tambah Pegawai</a>
 
+    <div width="100%">
+        <div class="col-auto">
+            <form action="/pegawai" method="GET">
+                <input type="search" name="search" class="form-control mt-4" placeholder="Cari data pegawai....">
+            </form>
+        </div>
+    </div>
+
         <div class="row">
 
             @if ($message = Session::get('success'))
