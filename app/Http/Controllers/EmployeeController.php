@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+// use PDF;
 
 class EmployeeController extends Controller
 {
@@ -52,5 +53,15 @@ class EmployeeController extends Controller
         $data_nana->delete();
 
         return redirect()->route('pegawai')->with('success','Data Berhasil di Hapus');
+    }
+
+    public function export(){
+        $data_nana = Employee::all();
+        return view('datapegawai-pdf', compact('data_nana'));
+
+        // from here-pdf tools and also use PDF; top
+        // view()->share('data_nana',$data_nana);
+        // $pdf_nana = PDF::loadview('datapegawai-pdf');
+        // return $pdf_nana->downlaod();
     }
 }

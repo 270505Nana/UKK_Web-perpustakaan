@@ -20,7 +20,8 @@
                     <div class="card-body">
                         <form action="/updatedata/{{$data_nana->id}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <!-- Wajib untuk insert data -->
+                            <!-- Wajib untuk insert data @csrf-->
+
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
                                 <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data_nana -> nama }}">

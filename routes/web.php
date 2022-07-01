@@ -37,3 +37,6 @@ Route::post('/updatedata/{id}', [EmployeeController::class, 'updatedata'])->name
 
 // Delete data
 Route::get('/delete/{id}', [EmployeeController::class, 'delete'])->name('delete');
+
+// Export data pegawai 
+Route::get('/export', [EmployeeController::class, 'export'])->name('export');

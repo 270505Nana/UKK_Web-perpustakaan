@@ -18,6 +18,7 @@
     <div class="container">
 
     <a href="/tambahpegawai" class="btn btn-success"> + Tambah Pegawai</a>
+    <a href="/export" class="btn btn-primary"> Export Data Pegawai</a>
 
     <div width="100%">
         <div class="col-auto">
