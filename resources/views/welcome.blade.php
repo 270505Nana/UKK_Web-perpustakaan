@@ -26,49 +26,46 @@
       <div class="container-fluid">
         <!-- Info boxes -->
         <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
-              <!-- icon keranjang : <i class="fas fa-shopping-cart"></i> -->
-              <!-- icon like : <i class="fas fa-thumbs-up"></i> -->
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
               <div class="info-box-content">
-                <span class="info-box-text">CPU Traffic</span>
-                <span class="info-box-number">
-                  10
-                  <small>%</small>
+              <span class="info-box-text">Jumlah Pegawai</span>
+                <span class="info-box-number"> {{ $data_nana }}</span>
                 </span>
               </div>
-              <!-- /.info-box-content -->
             </div>
-            
-            <!-- /.info-box -->
           </div>
-          <!-- /.col -->
-          
-          <!-- /.col -->
 
-          <!-- fix for small devices only -->
-        
-          <!-- /.col -->
+
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
+              <span class="info-box-text">Jumlah Pegawai Cewe</span>
+                <span class="info-box-number"> {{ $data_nana_cewe }}</span>
               </div>
-              <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box -->
           </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
 
-       
-        <!-- /.row -->
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+              <span class="info-box-text">Jumlah Pegawai Cowo</span>
+                <span class="info-box-number"> {{ $data_nana_cowo }}</span>
+              </div>
+            </div>
+          </div>
+  
+        </div>
 
         <!-- Main row -->
         <!-- <div class="row"> -->

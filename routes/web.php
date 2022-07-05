@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Models\Employee;
 // location controller
 
 /*
@@ -16,7 +17,11 @@ use App\Http\Controllers\EmployeeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $data_nana = Employee::count();
+    $data_nana_cewe = Employee::where('jeniskelamin','cewe')->count();
+    $data_nana_cowo = Employee::where('jeniskelamin','cowo')->count();
+    return view('welcome',compact('data_nana','data_nana_cewe','data_nana_cowo'));
 });
 
 Route::get('/pegawai', [EmployeeController::class, 'index'])->name('pegawai');
