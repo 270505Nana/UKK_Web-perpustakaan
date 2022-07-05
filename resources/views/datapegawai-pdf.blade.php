@@ -24,10 +24,14 @@
         background-color: #04AA6D;
         color: white;
         }
+
+        h1{
+            text-align: center;
+        }
         </style>
     </head>
     <body>
-        <h1>A Fancy Table</h1>
+        <h1>Data Pegawai</h1>
         <table id="customers">
             <tr>
                 <th>No</th>
