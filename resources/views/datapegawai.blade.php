@@ -22,12 +22,12 @@
         <div class="container">
 
             <a href="/tambahpegawai" class="btn btn-success"> + Tambah Pegawai</a>
-            <a href="/export" class="btn btn-primary"> Export Data Pegawai</a>
+            <a href="/export" class="btn btn-primary ml-3"> Export Data Pegawai</a>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <!-- <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Import Data
-            </button>
+            </button> -->
 
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
