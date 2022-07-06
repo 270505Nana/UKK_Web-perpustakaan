@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 // use PDF;
 
 class EmployeeController extends Controller
@@ -12,9 +13,11 @@ class EmployeeController extends Controller
 
         if ($request->has('search')) {
             $data_nana = Employee::where('nama','LIKE','%'.$request->search.'%')->paginate(5);
+            Session::put('halaman_url',request()->fullUrl());
         }else {
             
             $data_nana = Employee::paginate(5);
+            Session::put('halaman_url',request()->fullUrl());
         }
 
        return view('datapegawai',compact('data_nana'));
@@ -51,6 +54,10 @@ class EmployeeController extends Controller
     public function updatedata(Request $request, $id){
         $data_nana = Employee::find($id);
         $data_nana->update($request->all());
+
+        if (session('halaman_url')) {
+            return Redirect(session('halaman_url'))->with('success','Data Berhasil di Ubah');
+        }
 
         return redirect()->route('pegawai')->with('success','Data Berhasil di Ubah');
     }

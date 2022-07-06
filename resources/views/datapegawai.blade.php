@@ -22,6 +22,7 @@
         <div class="container">
 
             <a href="/tambahpegawai" class="btn btn-success"> + Tambah Pegawai</a>
+           
             <a href="/export" class="btn btn-primary ml-3"> Export Data Pegawai</a>
 
             <!-- Button trigger modal -->

@@ -23,7 +23,7 @@ Route::get('/', function () {
     $data_nana_cewe = Employee::where('jeniskelamin','cewe')->count();
     $data_nana_cowo = Employee::where('jeniskelamin','cowo')->count();
     return view('welcome',compact('data_nana','data_nana_cewe','data_nana_cowo'));
-});
+})->middleware('auth');
 
 Route::get('/pegawai', [EmployeeController::class, 'index'])->name('pegawai')->middleware('auth');
 
@@ -60,4 +60,4 @@ Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('re
 Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
 
 // Logout
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
