@@ -28,14 +28,16 @@
         <div class="row">
 
         <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+           
+              <div class="info-box">
+                  <span class="info-box-icon bg-warning elevation-1"><a href="/pegawai"><i class="fas fa-users"></i></a></span>
 
-              <div class="info-box-content">
-              <span class="info-box-text">Jumlah Pegawai</span>
-                <span class="info-box-number"> {{ $data_nana }}</span>
-                </span>
+                  <div class="info-box-content">
+                  <span class="info-box-text">Jumlah Pegawai</span>
+                  <span class="info-box-number"> {{ $data_nana }}</span>
+                
               </div>
+
             </div>
           </div>
 

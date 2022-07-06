@@ -31,6 +31,13 @@ class EmployeeController extends Controller
         //     $data_nana->foto = $request->file('foto')->getClientOriginalName();
         //     $data_nana->save();
         // }
+
+        // form validation
+        $this->validate($request,[
+            'nama' => 'required|max:25|min:7',
+            'notelpon' => 'required|max:15|min:11',
+        ]);
+
         return redirect()->route('pegawai')->with('success','Data Berhasil di Tambahkan');
     }
 

@@ -93,7 +93,8 @@
                                 <td>{{$row->created_at->format('D M Y') }}</td>
                                 <td>
                                     <a href="/tampilkandata/{{$row->id}}" class="btn btn-info">Edit</a>
-                                    <a class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama}}" >Hapus</a>
+                                    <a onclick="return confirm('Hapus data?')" href="/delete/{{$row->id}}" class="btn btn-danger delete" >Hapus</a>
+                                    <!-- <a class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama}}" >Hapus</a> -->
                                 </td>
                             </tr>
                         @endforeach
@@ -138,10 +139,8 @@
     // swal("Good job!", "You clicked the button!", "success");
 
     $('.delete').click( function(){
-
         var pegawaiid = $(this).attr('data-id');
         var nama = $(this).attr('data-nama');
-
         swal({
             title: "Hapus Data?",
             text: "Kamu akan menghapus data pegawai dengan nama "+nama+" ",
@@ -153,7 +152,7 @@
             if (willDelete) {
                 window.location = "/delete/"+pegawaiid+""
                 swal("Data berhasil dihapus", {
-                icon: "success",
+                icon: "danger",
                 });
             } else {
                 swal("Data tidak jadi dihapus");

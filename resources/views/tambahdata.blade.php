@@ -16,6 +16,9 @@
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
                                     <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    @error('nama')
+                                        <div class="alert alert-danger mt-4">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
@@ -29,7 +32,10 @@
 
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">No Telepon</label>
-                                    <input name="notelpon" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input name="notelpon" type="number" class="form-control">
+                                    @error('notelpon')
+                                        <div class="alert alert-danger mt-4">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <!-- <div class="mb-3">

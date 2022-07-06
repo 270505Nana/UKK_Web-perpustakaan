@@ -42,10 +42,10 @@ Route::post('/updatedata/{id}', [EmployeeController::class, 'updatedata'])->name
 // update data -> post
 
 // Delete data
-Route::get('/delete/{id}', [EmployeeController::class, 'delete'])->name('delete')->middleware('auth');
+Route::get('/delete/{id}', [EmployeeController::class, 'delete'])->name('delete');
 
 // Export data pegawai 
-Route::get('/export', [EmployeeController::class, 'export'])->name('export')->middleware('auth');
+Route::get('/export', [EmployeeController::class, 'export'])->name('export');
 
 // Login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
