@@ -8,55 +8,22 @@
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Data Pegawai</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard </li>
-                </ol>
-            </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                <h1 class="m-0">Data Buku</h1>
+            </div>
+          
+            </div>
+        </div>
 
         <div class="container">
 
-            <a href="/tambahpegawai" class="btn btn-success"> + Tambah Pegawai</a>
+            <a href="/tambah" class="btn btn-success"> + Tambah Buku</a>
            
-            <a href="/export" class="btn btn-primary ml-3"> Export Data Pegawai</a>
+            <a href="/export" target = "_blank"  class="btn btn-primary ml-3"> Export Data Buku</a>
 
-            <!-- Button trigger modal -->
-            <!-- <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Import Data
-            </button> -->
-
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="#" method="POST" enctype="multipart/form-data">
-                        @csrf
-                    <div class="modal-body">
-                    <div class="from-group">
-                        <input type="file" name="file" required>
-                    </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">BATAL</button>
-                        <button type="submit" class="btn btn-primary">SIMPAN</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            </form>
             <div width="100%">
                 <div class="col-auto">
-                    <form action="/pegawai" method="GET">
-                        <input type="search" name="search" class="form-control mt-4 mb-4 " placeholder="Cari data pegawai....">
+                    <form action="/daftarbuku" method="GET">
+                        <input type="search" name="search" class="form-control mt-4 mb-4 " placeholder="Cari data buku....">
                     </form>
                 </div>
             </div>
@@ -72,10 +39,12 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">NAMA</th>
-                            <th scope="col">Jenis Kelamin</th>
-                            <th scope="col">No.Telepon</th>
-                            <th scope="col">Dibuat</th>
+                            <th scope="col">Judul Buku</th>
+                            <th scope="col">Pengarang</th>
+                            <th scope="col">Penerbit</th>
+                            <th scope="col">Tahun terbit</th>
+                            <th scope="col">Kota terbit</th>
+                            <th scope="col">Cover buku</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -88,11 +57,22 @@
                         @foreach($data_nana as $index =>  $row)
                             <tr>
                                 <th scope="row">{{$index + $data_nana->firstItem() }}</th>
-                                <td>{{$row->nama}}</td>
-                                <td>{{$row->jeniskelamin}}</td>
-                                <td>{{$row->notelpon}}</td>
-                                <td>{{$row->created_at->format('D M Y') }}</td>
+                                <td>{{$row->judul_buku}}</td>
+                                <td>{{$row->pengarang}}</td>
+                                <td>{{$row->penerbit}}</td>
+                                <td>{{$row->tahun_terbit}}</td>
+                                <td>{{$row->kota_terbit}}</td>
                                 <td>
+                                @if($row->image)
+                                    <div style="width:75px">
+                                        <img src="{{ asset('storage/' . $row->image) }}"  class="card-img-top img-fluid mt-3">
+                                    </div>
+                                @else
+                                No image
+                                @endif
+                                                    </td>
+                                <td>
+                                    <!-- <a href="/tampilkandata/{{$row->id}}" class="btn btn-info">Detail</a> -->
                                     <a href="/tampilkandata/{{$row->id}}" class="btn btn-info">Edit</a>
                                     <a onclick="return confirm('Hapus data?')" href="/delete/{{$row->id}}" class="btn btn-danger delete" >Hapus</a>
                                     <!-- <a class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama}}" >Hapus</a> -->
@@ -128,16 +108,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
     </body>
+
     <!-- PEMANGGILAN SWEET ALERT -->
     <script>
-    // swal("Good job!", "You clicked the button!", "success");
 
     $('.delete').click( function(){
         var pegawaiid = $(this).attr('data-id');

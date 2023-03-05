@@ -17,13 +17,11 @@
     <body class="hold-transition login-page">
         <div class="login-box">
         <!-- /.login-logo -->
-        <div class="card card-outline card-primary">
+        <div class="card card-outline card-dark">
             <div class="card-header text-center">
-            <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+            <h2 class="h1"><b>REGISTER</b></h2>
             </div>
             <div class="card-body">
-            <p class="login-box-msg">Register</p>
-
             <form action="/registeruser" method="post">
                 @csrf
                 <div class="input-group mb-3">
@@ -63,7 +61,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-10" style="width:100%">
-                    <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+                    <button type="submit" class="btn btn-dark btn-block">Daftar</button>
                 </div>
                 <!-- /.col -->
                 </div>
