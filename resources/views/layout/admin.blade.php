@@ -17,16 +17,17 @@
     <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
     @stack('css')
   </head>
-  <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  <body class="hold-transition primary-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
 
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-  <img class="animation__wobble" src="{{ asset('template/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__wobble" src="{{ asset('template/dist/img/Logo.png') }}"height="60" width="60">
     </div>
-
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-dark">
+    <nav class="main-header navbar navbar-expand navbar-light">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -35,20 +36,12 @@
         <li class="nav-item d-none d-sm-inline-block">
           <a href="/" class="nav-link">Home</a>
         </li>
-        <!-- <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li> -->
-      </ul>
-
-      <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
-      
       </ul>
     </nav>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
       <a href="/" class="brand-link">
       <img src="{{ asset('template/dist/img/Logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -70,8 +63,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
+
             
             <li class="nav-item">
               <a href="/" class="nav-link">
@@ -101,17 +93,12 @@
             </li>
           </ul>
         </nav>
+        
       </div>
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
     @yield('content', 'Default content')
-    <!-- /.content-wrapper -->
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
   </div>
 
   <!-- REQUIRED SCRIPTS -->
