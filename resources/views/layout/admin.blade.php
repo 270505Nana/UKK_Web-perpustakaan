@@ -66,7 +66,7 @@
 
             
             <li class="nav-item">
-              <a href="/" class="nav-link">
+              <a href="/dashboard" class="nav-link">
                 <!-- / : diambil dari routes yg udah dibuat, didalam file routes -->
                 <i class="nav-icon fas fa-home"></i>
                 <p> Dashboard </p>

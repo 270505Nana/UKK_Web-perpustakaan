@@ -90,14 +90,14 @@ class BukuController extends Controller
         Buku::where('id', $data_nana->id)
                     ->update($validatedData);
 
-        return redirect('/daftarbuku')->with('success', 'Data buku berhasil diubah!!');
+        return redirect('/daftarbuku')->with('update', 'Data buku berhasil diubah!!');
     }
 
     public function delete($id){
         $data_nana = Buku :: find($id);
         $data_nana->delete();
 
-        return redirect()->route('daftarbuku')->with('success','Data Berhasil di Hapus');
+        return redirect()->route('daftarbuku')->with('delete','Data Berhasil di Hapus');
     }
 
     public function export(){

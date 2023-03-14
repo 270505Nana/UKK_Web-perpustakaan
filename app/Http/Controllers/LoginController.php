@@ -22,46 +22,48 @@ class LoginController extends Controller
     }
 
     public function registeruser(Request $request){
-       User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => bcrypt($request->password),
-            'remember_token' => Str::random(60),
-       ]);
 
-       return redirect ('/login');
+        $validatedData = $request->validate([
+            'name' => 'required|max:20|min:4',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:5|max:15'
+        ]);
+
+        $validatedData['password'] = bcrypt($validatedData['password']);
+
+        User::create($validatedData);
+
+        return redirect ('/')->with('success','Berhasil registrasi, silahkan login!');
     }
 
     public function loginproses(Request $request){
 
-        
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email:dns',
             'password' => 'required'
         ]);
 
         if(Auth::attempt($credentials)) {
-            if (Auth::user()->role_id == '1') {
-                return redirect('/')->with('status', 'Welcome to admin page');
-            } elseif (Auth::user()->role_as == '2') {
-                return redirect('/dashboard_user')->with('status', 'Logged in successfully');
+            if (auth()->user()->role_id == 2) {
+                $request->session()->regenerate(); 
+                return redirect()->intended('/dashboard_user');
             }
-            $request->session()->regenerate(); 
-            return redirect()->intended('/');
+            else{
+                $request->session()->regenerate(); 
+                return redirect()->intended('/dashboard');
+            }
+           
+            // intended itu supaya kalau dia redirect melewati middlewarenya dulu
         } 
 
-        return back()->with('loginError', 'Login Failed');
+        return back()->with('loginError','Gagal login, email atau password anda salah');
           
-        // if (Auth::attempt($request->only('email','password'))) {
-        //     return back()->with('loginError', 'Login Failed');
-        //   }
-
-        //   return redirect ('login');
     }
 
     public function logout(){
         Auth::logout();
         // pake bawaan aja
-        return redirect ('login');
+        return redirect ('/');
     }
 }
+?>

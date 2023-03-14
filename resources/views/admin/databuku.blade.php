@@ -30,11 +30,29 @@
 
             <div class="row">
 
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success mt-4" role="alert">
-                    {{$message}}
-                </div>
-                @endif
+            <!-- alert message -->
+            @if(session()->has('success'))
+            <!-- menampilkan flash mesage berhasil registrasi -->
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
+
+            @if(session()->has('update'))
+            <!-- menampilkan flash mesage berhasil registrasi -->
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('update') }}
+            </div>
+            @endif
+
+            @if(session()->has('delete'))
+            <!-- menampilkan flash mesage berhasil registrasi -->
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('delete') }}
+            </div>
+            @endif
+
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
